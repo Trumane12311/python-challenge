@@ -8,6 +8,10 @@ budgetdata = os.path.join("..","Resources","budget_data.csv")
 with open(budgetdata) as csvfile:
     csvreader = csv.reader(budgetdata, delimiter=",")
 
+def print_percentages(budgetdata):
+    months = str(budgetdata[0])
+    lossgain = str(budgetdata[1])
+
 # * The total number of months included in the dataset
 print("Financial Analysis")
 print("---------------------------")
