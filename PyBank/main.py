@@ -19,8 +19,6 @@ with open(budgetdata, 'r') as csvfile:
     netprofit = netprofit + int(jandata[1])
     previousnet = int(jandata[1])
     for row in csvreader:
-      print(row)
-      
       totalmonths = totalmonths + 1
       netprofit = netprofit + int(row[1])
       change = int(row[1])-previousnet
@@ -33,8 +31,14 @@ with open(budgetdata, 'r') as csvfile:
         greatestdec[1] = change
         greatestdec[0] = row[0]
 averagechange = sum(changelist)/len(changelist)
-print(averagechange)
-print(totalmonths,netprofit)
+
+print("Financial Analysis")
+print("---------------------")
+print('Total Months: ' + f'{totalmonths}')
+print('Net Profit: ' +  f'{netprofit}')
+print('Average Change: ' + f'{averagechange}')
+
+
 print(greatestinc[0],greatestinc[1])
 print(greatestdec[0],greatestdec[1])
  
