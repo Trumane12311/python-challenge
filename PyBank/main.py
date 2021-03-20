@@ -34,9 +34,9 @@ averagechange = sum(changelist)/len(changelist)
 
 print("Financial Analysis")
 print("---------------------")
-print('Total Months: ' + f'{totalmonths}')
-print('Net Profit: ' +  f'{netprofit}')
-print('Average Change: ' + f'{averagechange}')
+print(f'Total Months: ${totalmonths}')
+print(f'Net Profit: ${netprofit}')
+print(f'Average Change: ${averagechange}')
 
 
 print(greatestinc[0],greatestinc[1])
