@@ -32,15 +32,14 @@ with open(budgetdata, 'r') as csvfile:
         greatestdec[0] = row[0]
 averagechange = sum(changelist)/len(changelist)
 
+
 print("Financial Analysis")
 print("---------------------")
-print(f'Total Months: ${totalmonths}')
+print(f'Total Months: {totalmonths}')
 print(f'Net Profit: ${netprofit}')
 print(f'Average Change: ${averagechange}')
-
-
-print(greatestinc[0],greatestinc[1])
-print(greatestdec[0],greatestdec[1])
+print(f'Greatest Increase in Profits: {greatestinc[0]}, $({greatestinc[1]})')
+print(f'Greatest Decrease in Profits: {greatestdec[0]}, ${greatestdec[1]}')
  
 # * The total number of months included in the dataset
 # print("Financial Analysis")
@@ -83,14 +82,13 @@ print(greatestdec[0],greatestdec[1])
 # print(f"Greatest Decrease in Losses: " + '{greatest_dec}')
 
 #Save the output file path
-# output_file = os.path.join("..","analysis", "output.csv")
+output_file = os.path.join("analysis", "output.csv")
 
-# with open(output_file, "w", newline='') as newbudgetfile:
-#     csvwriter = csv.writer(newbudgetfile)
-#     csvwriter.writerow("Financial Analysis")
-#     csvwriter.writerow("-------------------")
-#     csvwriter.writerow(f"Total Months:" + "{total_months}")
-#     csvwriter.writerow(f"Net Total:" + "{net_total}")
-#     csvwriter.writerow(f"Average Change:" + "{mean_change}")
-#     csvwriter.writerow(f"Greatest Increase in Profits:" + "{greatest_inc}")
-#     csvwriter.writerow(f"Greatest Decrease in Profits:" + "{greatest_dec}")
+with open(output_file, "w", newline='') as newbudgetfile:
+  csvwriter = csv.writer(newbudgetfile, delimiter=',')
+  csvwriter.writerow(["Financial Analysis", "Metrics"])
+  csvwriter.writerow([f'Total Months:, {totalmonths}'])
+  csvwriter.writerow([f'Net Profit:, ${netprofit}'])
+  csvwriter.writerow([f'Average Change:, ${averagechange}'])
+  csvwriter.writerow([f'Greatest Increase in Profits:, {greatestinc[0]}, $({greatestinc[1]})'])
+  csvwriter.writerow([f'Greatest Decrease in Profits:, {greatestdec[0]}, ${greatestdec[1]}'])
